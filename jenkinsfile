@@ -1,0 +1,29 @@
+pipeline {
+   options {
+      checkoutToSubdirectory('jiss')
+      timeout(time: 20, unit: 'MINUTES')
+   }  
+   agent {
+     label 'newnode'
+   }
+   
+   post {
+     cleanup {
+       deleteDir()
+     }
+   }
+   
+   stages {
+   
+      stage('test') {
+      
+        if(${params.ACTION} == 1) {
+           mkdir peace
+           }
+        else
+        
+        if(${params.ACTION} ==2) {
+           mkdir power
+           }
+      }
+   }   
